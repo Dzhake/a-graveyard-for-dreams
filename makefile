@@ -15,8 +15,8 @@ assets:
 
 .PHONY: test
 test:
-	rm -rf test
-	unzip dist.zip -d test
+	./test.sh
 
 linecount:
 	(cd src; find . -name '*.js' | xargs wc -l)
+
