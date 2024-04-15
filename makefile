@@ -9,10 +9,6 @@ pack:
 .PHONY: dist
 dist: compile pack
 
-.PHONY: assets
-assets:
-	./dev/convert.sh
-
 .PHONY: test
 test:
 	./test.sh

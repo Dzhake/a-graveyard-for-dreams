@@ -6,6 +6,9 @@ cat tools/html_top.txt > test/index.html
 cat tools/out.js >> test/index.html
 cat tools/html_bottom.txt >> test/index.html
 # The best way to do this...
+if [ -d test/assets ]; then
+    rm -rf test/assets
+fi
 cp -r ./assets test/assets
 
 cd test

@@ -1,0 +1,247 @@
+{
+    "audiointro": "Enable audio?\nPress enter\nto confirm.",
+    
+    "yes": "Yes",
+    "no": "No",
+    "back": "Back",
+
+    "newgame": "New Game",
+    "continue": "Load Game",
+    "copyright": "©2020 Jani Nykänen",
+
+    "resume": "Resume",
+    "respawn": "Respawn",
+    "quit": "Quit",
+
+    "respawnText": "Respawn in the\nlatest check-\npoint?",
+    "quitText": "Return to the\nmain menu?\nYou will lose\nyour progress!",
+
+    "obtain": "You obtain",
+
+    "heartName": "a\nHEART CONTAINER!",
+    "heartDesc": ["It increases\nyour health\nby one."],
+
+    "itemName": [
+
+        "a\nRUSTY SWORD!",
+        "a\npair of\nJUMPING BOOTS!",
+        "a\nBOOMERANG!",
+        "a\npair of\nFLIPPERS!",
+
+        "a\nSNORKEL!",
+        "a\njar of\nLUBRICANT!",
+        "\na... DOWNWARDS\nATTACK?! Sure,\nwhatever.",
+        "a\nPROTEIN BAR!",
+
+        "a\npair of\nSTICKY GLOVES!",
+        "a\npair of\nTINY WINGS!",
+        "\nMAGIC BEANS!",
+        "a\nFRIENDLY FIRE!",
+
+        "a\nbag of\nFAIRY DUST!",
+        "a\nPRECIOUS GEM!",
+        "a\nHARD HELMET!",
+        "\nCLOTHES!",
+
+        "a\nDREAM MAP!",
+        "a\npair of\nSPEED BOOTS!",
+        "a\nCHESTPLATE!",
+        "\nMAGIC PILLS!",
+
+        "a\nTREASURE\nTRACKER!",
+        "a\nDUMMY ITEM!",
+        "a\nLIFE POTION!",
+        "a\nMAGNIFICENT\nSWORD OF GREAT\nAWESOMENESS!"
+    ],
+    "itemDesc": [
+        ["Press X or (X)\nto attack!"],
+        ["Now you can\njump higher."],
+        ["Press C or (B) to\nthrow it."],
+        ["Now you can\nswim in deep\nwater."],
+
+        ["It lets you\nbreathe under-\nwater."],
+        ["Now you can\nslide by holding\nthe down button\nand pressing the\njump button."],
+        ["Hold down the\ndown button (heh)\nand press the\nattack button\non air to\nperform it."],
+        ["Perform a power\nattack by holding\nthe attack button\nafter attacking\nand then\nreleasing it."],
+
+        ["You can perform\na wall jump\nnow."],
+        ["Now you can flap\nyour arms by\nholding the\njump button to\nmimic flying."],
+        ["Now you can\nperform a\ndouble jump."],
+        ["It sets your\nboomerang on\nfire, making it\nmelt ice blocks\nand go through\nenemies."],
+
+        ["When you die,\na bigger portion\nof your health\nis restored."],
+        ["When you touch it,\nit turns into\na pile of coins."],
+        ["Now you may\nbreak tiles\nwith your\nhead."],
+        ["Now it only\nfeels like you\nwere wearing\nnothing at all."],
+
+        ["It automatically\ncharts the\nrooms you have\nvisited.", "Press L.Shift or\neither shoulder\nbutton to open\nit."],
+        ["Now you can\nrun a bit\nfaster."],
+        ["It reduces the\ndamage you take."],
+        ["nAll the hearts\nyou collect will\nheal you more."],
+
+        ["It shows all the\ntreasure you\nhave not yet\nfound in the\nmap."],
+        ["A test item.\nIt cannot\npossess any\nreal value,\nright?"],
+        ["It revives you\nif you die. But\nonly once!"]
+    ],
+
+    "keyName": "an\nOLD KEY!",
+    "keyDesc": ["It can be\nused to unlock\na door."],
+
+    "orbName": "a\nDREAM ORB!",
+    "orbDesc": ["Only % more\nto go!"],
+    "orbHasAll": ["You have\nthem all!"],
+
+    "potionName": "a\nHEALTH POTION!",
+    "potionDesc": ["It restores\nyour health"],
+
+    "npc0": ["I am the\ndefault NPC.", "Hopefully you\nwon't find me\nin the final\nversion."],
+
+    "saveGame": "Save your\nprogress? This\nwill overwrite\nthe old save.",
+    "goodResult": "Game saved.",
+    "badResult": "Failed to\nsave data.",
+
+    "openDoor": "Unlock the door\nwith an old\nkey? The key\nwill be con-\nsumed.",
+    "needKey": "The door is\nlocked.",
+
+    "noSaveData": "No save data\nfound or it\ncould not be\nloaded!",
+
+    "shopkeeper": [
+        "Good morning,\nfriend! I am\na travelling\nmerchant!",
+        "Good evening,\npal, I am the\ncool travelling\nmerchant!"
+    ],
+
+    "shopItemNames": 
+        [
+            ["H. Potion", "Heart Cont.", "Old Key", "Dream Map", "Speed Boots"],
+            ["Chestplate", "Magic Pills", "Trs. Tracker", "Dummy Item", "Life Potion"]
+        ],
+    "shopItemDesc": [
+        ["Restores all your\nhealth.",
+        "Increases your\nmaximum life by\none.",
+        "Can be used to\nunlock a door.",
+        "Automatically\ncharts the rooms\nyou have\nvisited.",
+        "Slightly increases\nyour running\nspeed."],
+        [
+        "Reduces the damage\nyou take.",
+        "Makes collectable\nhearts heal you\nmore.",
+        "Shows all the\ntreasure in the\nmap.",
+        "It's here for\ntesting purposes.\nIt cannot possibly\nhave any value!",
+        "Revives you if you\ndie. But only\nonce!"
+        ]
+    ],
+
+    "cannotAfford": "You cannot\nafford that\nitem!",
+    "confirmTransaction": "Buy this item?",
+    "sold": "SOLD",
+
+    "healthPotion": "Your health is\nrestored.",
+
+    "mapHeader": "Dream Map",
+    "map": "Show Map",
+    "noMap" : ["You do not\nhave a map\nof this area."],
+
+    "storyIntro": [
+        "When dreams die,\nthey are buried\nin an unnamed\ngraveyard beyond\nthe world of\ndreams.",
+        "However, some\ndreams are so\npowerful they\nrefuse to\nremain dead.",
+        "We call them\nnightmares."
+    ],
+
+    "deathIntro": [
+        "You wake up.",
+        "You remember dying.",
+        "The dream of your\ndeath is all\naround you."
+    ],
+
+    "deathLocation": ["A Dream of Death"],
+    "worldLocation": ["The World of Dreams"],
+    "finalLocation": ["The Dream of", "the Eye"],
+
+    "npc": [
+        ["Welcome to the\nWorld of Dream,\nstranger.",
+        "I see that you\njust came from\nthe graveyard.\nYou do look\npretty dead,\nif you ask me.",
+        "If you want to\ngo back, you\nneed to find\na way to\nactivate that\nportal."],
+
+        ["See that orb?\nWe call it\nthe night orb.",
+         "If you can\nactivate it,\nyou probably\ncould bring the\nnight back."],
+
+        ["Who are we,\nyou ask? That\nis... a good\nquestion.",
+         "Are we dreams\nor are we\njust dead?\nMaybe both."   
+        ],
+
+        ["Every living\ncreature has\na world of\ndreams of\ntheir own.",
+         "I guess they\nalso have a\npersonal grave-\nyard for dead\ndreams, too."],
+
+        ["There used to\nbe a flying\npalace in\nthe sky.",
+         "I wonder what\nhappened to\nit."],
+
+        ["The nightmare\nthat got loose?\nWe call it\nThe Eye.",
+        "No one knows\nwhere The Eye\ncame from,\nthough."],
+
+        ["Are you dead\nor just\ndreaming, we\ndon't know.",
+         "Maybe this is\nnot even your\nown dream."],
+
+        ["You can die\nin your own\ndream as many\ntimes as you\nwant.",
+         "Normally you\nwould wake up,\nbut now you\njust... respawn.",
+        "Whatever that\nmeans..."],
+
+        ["What happens\nif you kill\nThe Eye? Does\nthe dream end?",
+        "But... why\nwould it end?"],
+
+        ["I don't have\nanything to\nsay."],
+
+        ["Time does not\nreally exist\nhere.",
+        "For that reason\nthere is\nhardly any\nnarrative."],
+
+        ["The flying\npalace was\nsupposed to\nbe gone for\ngood.",
+        "They lied\nto use. I\nthink."],
+
+        ["See those dark\nclouds? The world\ncannot loop\nvertically, so\nthey put some\nclouds there."],
+
+        ["They say you\ncan find stars\nif you bring\nthe night back."],
+
+        ["This guy next\nto me? I think\nhe is - was -\na robot.",
+        "There are a lot\nof dead robots\nlying around."],
+
+        ["There was\nsupposed to\nbe a secret\ntreasure here.",
+        "But there was\nnothing left\nto collect."]
+    ],
+
+    "specialNPC": [
+        ["There was an\norb in that\nchest. I\nthought it was\nedible, so I\nate it.",
+        "You can have\nit back if\nyou pay me\n30 coins."],
+        ["I am the world-\nfamous collector\nof useless\njunk.",
+        "If you have\nsomething use-\nless, I can\ntrade it for\nsomething\nuseful!"],
+        ["I feel a bit\nsick..."]
+    ],
+
+    "specialQuestion": [
+        "Pay 30 coins\nfor the orb?",
+        "Trade DUMMY\nITEM for\nsomething\ncool?",
+        "Give him a\nLIFE POTION?"
+    ],
+
+    "specialReply": [
+        "Thanks mate,\nhere's the\norb!",
+        "Ooh, a dummy\nitem! I have\nalways wanted\none. Here,\ntake this!",
+        "Ooh, thanks!\nPlease, take\nthis!"
+    ],
+
+    "specialResult": [
+        ["You obtain a\nDREAM ORB!", "Only % more\nto go!"],
+        ["You obtain the\nSWORD OF\nUNBELIEVABLE\nMAGNIFICENCE!", "It's slighty\nmore powerful\nthan your\nrusty sword"],
+        ["You obtain a...\nBANANA?!", "I wonder what\nit does..."]
+    ],
+
+    "lifePotionUsed": "You use the\nLIFE POTION\nto restore\nyour health.",
+
+    "nightOrbActivate": "Use DREAM ORBS\nto activate the\nnight orb?",
+    "nightOrbOverdrive": "Touch the\nnight orb?",
+
+    "meow": ["MEOW!"],
+
+    "ending": [
+        "The nightmare was\ndefeated for good.",
+        "Your dream could\nfinally end.",
+        "But you never\nwoke up..."
+    ]
+}
