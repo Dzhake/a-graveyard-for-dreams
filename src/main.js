@@ -9,7 +9,7 @@ import { AudioIntro } from "./audiointro.js";
 
 
 window.onload = () => (new Application(160, 144, 0))
-    .loadAssets("../assets/assets.json")
+    .loadAssets("assets/assets.json")
     .addActions(
         [
             // Arrow keys are added by default

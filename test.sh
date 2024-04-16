@@ -1,17 +1,29 @@
-#!/bin/sh
-java -jar tools/closure.jar --js src/core/*.js src/*.js --js_output_file tools/out.js --compilation_level ADVANCED_OPTIMIZATIONS --language_out ECMASCRIPT_2018
-#./compile.sh
+#!/bin/bash
 
-cat tools/html_top.txt > test/index.html
-cat tools/out.js >> test/index.html
-cat tools/html_bottom.txt >> test/index.html
-# The best way to do this...
-if [ -d test/assets ]; then
-    rm -rf test/assets
+#value of default
+filename="test"
+if ! [ -z $1 ]; then 
+    filename=$1
 fi
-cp -r ./assets test/assets
 
-cd test
+if [[ "x$filename" == "xindex" ]]; then
+    echo "Sorry, but I don't think you want to override that file"
+    echo "*execution ended*"
+    exit 0
+fi
+
+
+#compile
+java -jar tools/closure.jar --js src/core/*.js src/*.js --js_output_file tools/out.js --compilation_level ADVANCED_OPTIMIZATIONS --language_out ECMASCRIPT_2018
+
+#create .html
+rm -f ./$filename.html
+
+cat tools/html_top.txt > ./$filename.html
+cat tools/out.js >> ./$filename.html
+cat tools/html_bottom.txt >> ./$filename.html
+
+#run server
 python -m http.server
 
-
+echo "*execution ended*"
