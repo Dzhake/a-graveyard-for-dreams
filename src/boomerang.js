@@ -22,6 +22,8 @@ class Flame {
         this.speed = 1.0;
 
         this.exist = false;
+
+        this.skin = "figure";
     }
 
 
@@ -42,8 +44,9 @@ class Flame {
         if (!this.exist)
             return;
 
-        if ((this.timer -= this.speed * ev.step) <= 0) {
+        this.skin = ev.settings.skin;
 
+        if ((this.timer -= this.speed * ev.step) <= 0) {
             this.exist = false;
         }
     }
@@ -55,7 +58,7 @@ class Flame {
 
         let frame = 5 + clamp(Math.round((1.0-this.timer) * 5), 0, 4);
         
-        c.drawBitmapRegion(c.bitmaps["figure"],
+        c.drawBitmapRegion(c.bitmaps[this.skin],
             frame*16,80, 16, 16,
             Math.round(this.pos.x-8),
             Math.round(this.pos.y-8), Flip.None);
@@ -100,6 +103,8 @@ export class Boomerang extends CollisionObject {
         this.ignoreFence = true;
         
         this.isBanana = false;
+
+        this.skin = "figure";
     }
 
 
@@ -160,6 +165,7 @@ export class Boomerang extends CollisionObject {
 
 
     updateLogic(ev) {
+        this.skin = ev.settings.skin;
 
         const EPS = 12.0;
         const ANIM_SPEED = 4;
@@ -223,7 +229,7 @@ export class Boomerang extends CollisionObject {
 
         if (!this.exist) return;
 
-        this.spr.draw(c, c.bitmaps["figure"],
+        this.spr.draw(c, c.bitmaps[this.skin],
             (this.pos.x - 8) | 0,
             (this.pos.y - 8) | 0, 
             this.speed.x >= 0 ? Flip.None : Flip.Horizontal);

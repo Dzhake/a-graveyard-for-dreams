@@ -42,12 +42,12 @@ export class Tilemap {
 
         let str, content;
         let id;
-        for (let i = 0; i < data.length; ++ i) {
+        for (const element of data) {
 
-            id = data[i].id-min;
+            id = element.id-min;
 
             // Get layer data & remove newlines
-            str = data[i].getElementsByTagName("data")[0]
+            str = element.getElementsByTagName("data")[0]
                 .childNodes[0]
                 .nodeValue
                 .replace(/(\r\n|\n|\r)/gm, "");

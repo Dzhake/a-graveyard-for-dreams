@@ -103,6 +103,8 @@ export class Player extends CollisionObject {
         this.forceWaitTimer = 0.0;
 
         this.skipFrame = false;
+
+        this.skin = "figure";
     }
 
 
@@ -443,6 +445,8 @@ export class Player extends CollisionObject {
 
 
     control(ev) {
+
+        this.skin = ev.settings.skin;
 
         const BASE_SPEED = 1.0;
         const BASE_GRAVITY = 2.0;
@@ -787,6 +791,8 @@ export class Player extends CollisionObject {
 
     updateLogic(ev) {
 
+        this.skin = ev.settings.skin
+
         const EPS = 0.01;
 
         if (this.skipFrame) return;
@@ -857,7 +863,7 @@ export class Player extends CollisionObject {
             x = this.pos.x + this.center.x + Math.cos(angle) * r;
             y = this.pos.y + this.center.y + Math.sin(angle) * r;
 
-            this.spr.draw(c, c.bitmaps["figure"], x-8, y-8, Flip.None);
+            this.spr.draw(c, c.bitmaps[this.skin], x-8, y-8, Flip.None);
         }
     }
 
@@ -890,19 +896,19 @@ export class Player extends CollisionObject {
 
         if (this.attackTimer > 0 && this.swordAttack) {
 
-            this.swordSpr.draw(c, c.bitmaps["figure"], 
+            this.swordSpr.draw(c, c.bitmaps[this.skin], 
                 px+12 - 24*this.flip, 
                 py+1, this.flip);
         }
 
-        let bmp = c.bitmaps[this.progress.hasItem(ItemType.Clothes) ? "figure" : "figureNaked"];
+        let bmp = c.bitmaps[this.progress.hasItem(ItemType.Clothes) ? this.skin : "figureNaked"];
         this.spr.drawFrame(c, bmp, 
             frame, this.spr.row,
             px, py, this.flip);
 
         if (this.downAttack) {
 
-            this.swordSpr.draw(c, c.bitmaps["figure"], 
+            this.swordSpr.draw(c, c.bitmaps[this.skin], 
                 px+3 - 6*this.flip, 
                 py+7, this.flip);
         }
@@ -911,7 +917,7 @@ export class Player extends CollisionObject {
 
         if (this.showArrow) {
 
-            this.spr.drawFrame(c, c.bitmaps["figure"],
+            this.spr.drawFrame(c, c.bitmaps[this.skin],
                 3 + this.arrowType*2 + Math.floor(this.showArrowTimer/0.5),
                 7, px, py - 16, Flip.None);
         }
@@ -1417,6 +1423,10 @@ export class Player extends CollisionObject {
         }
 
         return false;
+    }
+
+    getSpriteName(ev) {
+        return ev.settings.skin;
     }
 
 }

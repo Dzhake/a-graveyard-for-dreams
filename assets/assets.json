@@ -54,6 +54,7 @@
     "tilemaps" : [
         {"name": "intro",  "path": "intro.tmx"},
         {"name": "base",  "path": "base.tmx"},
+
         {"name": "collisions",  "path": "collisions.tmx"}
     ],
 

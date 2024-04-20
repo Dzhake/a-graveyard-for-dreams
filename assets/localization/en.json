@@ -1,5 +1,9 @@
 {
     "audiointro": "Enable audio?\nPress enter\nto confirm.",
+    "skinselect": "Select skin\nYou can choose again\nFrom pause menu",
+
+    "defaultskin": "Default",
+    "npcskin":"Npc",
     
     "yes": "Yes",
     "no": "No",

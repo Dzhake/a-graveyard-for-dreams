@@ -6,38 +6,38 @@
 
 import { Menu, MenuButton } from "./menu.js";
 import { Scene } from "./core/scene.js";
-import { SkinSelect } from "./skinselect.js";
+import { Intro } from "./intro.js";
 
 
-export class AudioIntro extends Scene {
+export class SkinSelect extends Scene {
 
 
     constructor(ev, param) {
 
         super(ev, param);
 
+        let startScene = Intro;
         let loc = ev.assets.localization["en"];
 
         this.menu = new Menu(12, true,
             [
                 new MenuButton(
-                    loc["yes"], (ev) => {
+                    loc["defaultskin"], (ev) => {
 
-                        ev.audio.toggle(true);
-                        ev.audio.setGlobalSampleVolume(0.40);   
+                        ev.settings.skin = "figure";
 
-                        ev.changeScene(SkinSelect);
+                        ev.changeScene(startScene);
                         
                     }, false),
                 new MenuButton(
-                    loc["no"], (ev) => {
+                    loc["npcskin"], (ev) => {
 
-                        ev.audio.toggle(false);
-                        ev.changeScene(SkinSelect);
+                        ev.settings.skin = "figure_npc";
+                        ev.changeScene(startScene);
                     }, true)
             ]);
 
-        this.questionText = loc["audiointro"];
+        this.questionText = loc["skinselect"];
     }
 
 

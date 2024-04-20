@@ -12,16 +12,21 @@ if [[ "x$filename" == "xindex" ]]; then
     exit 0
 fi
 
+if [[ "x$filename" == "xnone" ]]; then
+    echo "filename is none, skipping compiling and creating .html"
+else
+    echo "Starting compilation..."
+    #compile
+    java -jar tools/closure.jar --js src/core/*.js src/*.js --js_output_file tools/out.js --compilation_level ADVANCED_OPTIMIZATIONS --language_out ECMASCRIPT_2018
 
-#compile
-java -jar tools/closure.jar --js src/core/*.js src/*.js --js_output_file tools/out.js --compilation_level ADVANCED_OPTIMIZATIONS --language_out ECMASCRIPT_2018
+    #create .html
+    rm -f ./$filename.html
 
-#create .html
-rm -f ./$filename.html
+    cat tools/html_top.txt > ./$filename.html
+    cat tools/out.js >> ./$filename.html
+    cat tools/html_bottom.txt >> ./$filename.html
+fi
 
-cat tools/html_top.txt > ./$filename.html
-cat tools/out.js >> ./$filename.html
-cat tools/html_bottom.txt >> ./$filename.html
 
 #run server
 python -m http.server

@@ -11,6 +11,7 @@ import { Scene } from "./scene.js";
 import { AssetPack } from "./assets.js";
 import { AudioPlayer } from "./audioplayer.js";
 import { Transition } from "./transition.js";
+import { Settings } from "../settings.js";
 
 
 export class Application {
@@ -28,6 +29,7 @@ export class Application {
         this.canvas = new Canvas(canvasWidth, canvasHeight, 
             this.assets.bitmaps);
         this.tr = new Transition();
+        this.settings = new Settings()
 
         this.ev = {
 
@@ -43,7 +45,8 @@ export class Application {
 
             
             changeScene: scene => this.changeScene(scene),
-            wait: time => {this.waitTimer = time;}
+            wait: time => {this.waitTimer = time;},
+            settings: this.settings
         };
 
         this.activeScene = new Scene(this.ev, null);
