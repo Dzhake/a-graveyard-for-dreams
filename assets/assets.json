@@ -9,6 +9,7 @@
 
         {"name": "creator",  "path": "creator.png"},
         {"name": "musicBy",  "path": "musicby.png"},
+        {"name": "creator_dzhake",  "path": "creator_dzhake.png"},
 
         {"name": "logo",  "path": "logo.png"},
         {"name": "titlebg",  "path": "titlebg.png"},

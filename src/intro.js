@@ -39,7 +39,7 @@ export class Intro extends Scene {
         if (this.timer >= APPEAR_TIME*2 + WAIT_TIME) {
 
             this.timer -= APPEAR_TIME*2 + WAIT_TIME;
-            if ( (++ this.phase) == 2) {
+            if ( (++ this.phase) == 3) {
 
                 ev.changeScene(TitleScreen);
             }
@@ -50,8 +50,11 @@ export class Intro extends Scene {
     redraw(c) {
 
         c.clear(0, 0, 0);
+        let pic = "creator";
+        if (this.phase == 1) pic = "musicBy"
+        else if (this.phase == 2) pic = "creator_dzhake"
 
-        let bmp = c.bitmaps[this.phase == 0 ? "creator" : "musicBy"];
+        let bmp = c.bitmaps[pic];
 
         let w = bmp.width;
         let h = bmp.height / 3;
