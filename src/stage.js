@@ -104,6 +104,7 @@ export class Stage {
         this.isIntro = isIntro;
 
         this.baseMap = assets.tilemaps[isIntro ? "intro" : "base"];
+
         this.baseColMap = assets.tilemaps["collisions"];
 
         this.tmap = this.baseMap.shallowCopy();

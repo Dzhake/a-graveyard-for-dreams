@@ -55,6 +55,10 @@
         {"name": "intro",  "path": "intro.tmx"},
         {"name": "base",  "path": "base.tmx"},
 
+        {"name": "intro_funnymodded",  "path": "intro_funnymodded.tmx"},
+        {"name": "base_funnymodded",  "path": "base_funnymodded.tmx"},
+
+
         {"name": "collisions",  "path": "collisions.tmx"}
     ],
 
