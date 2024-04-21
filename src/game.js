@@ -101,6 +101,8 @@ export class Game extends Scene {
         this.shop.disableButtons();
         
         this.gameMap = new GameMap(this.stage.width, this.stage.height, ev);
+
+        this.updatePlayerSkin = true;
     }
 
 
@@ -229,6 +231,11 @@ export class Game extends Scene {
 
             this.objects.initialCheck(this.cam);
             this.cam.jumpForced = false;
+        }
+
+        if (this.updatePlayerSkin) {
+            this.objects.player.skin = ev.settings.skin;
+            this.updatePlayerSkin = false;
         }
 
         if (ev.tr.active) return;

@@ -446,8 +446,6 @@ export class Player extends CollisionObject {
 
     control(ev) {
 
-        this.skin = ev.settings.skin;
-
         const BASE_SPEED = 1.0;
         const BASE_GRAVITY = 2.0;
         const BASE_FRICTION_X = 0.1;
@@ -790,8 +788,7 @@ export class Player extends CollisionObject {
 
 
     updateLogic(ev) {
-
-        this.skin = ev.settings.skin
+        this.skin = ev.settings.skin;
 
         const EPS = 0.01;
 
@@ -1423,10 +1420,6 @@ export class Player extends CollisionObject {
         }
 
         return false;
-    }
-
-    getSpriteName(ev) {
-        return ev.settings.skin;
     }
 
 }
