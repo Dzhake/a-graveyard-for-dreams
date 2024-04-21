@@ -30,5 +30,3 @@ fi
 
 #run server
 python -m http.server
-
-echo "*execution ended*"
