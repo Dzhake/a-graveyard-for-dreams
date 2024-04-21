@@ -18,6 +18,7 @@
         
         {"name":"figure", "path": "figure.png"},
         {"name": "figure_npc",  "path": "figure_npc.png"},
+        {"name": "figure_sleepy",  "path": "figure_sleepy.png"},
         {"name": "figureNaked",  "path": "figure_naked.png"},
 
         {"name": "background",  "path": "background.png"},

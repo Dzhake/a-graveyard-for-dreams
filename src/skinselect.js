@@ -34,6 +34,12 @@ export class SkinSelect extends Scene {
 
                         ev.settings.skin = "figure_npc";
                         ev.changeScene(startScene);
+                    }, true),
+                new MenuButton(
+                    loc["sleepyskin"], (ev) => {
+
+                        ev.settings.skin = "figure_sleepy";
+                        ev.changeScene(startScene);
                     }, true)
             ]);
 
