@@ -29,8 +29,8 @@ export class Intro extends Scene {
 
     refresh(ev) {
 
-        if (ev.input.anyPressed() &&
-            this.timer >= APPEAR_TIME && this.timer < APPEAR_TIME + WAIT_TIME) {
+        if (ev.input.anyPressed() /*&&
+            this.timer >= APPEAR_TIME*/ /* let me skip that screen faster */ && this.timer < APPEAR_TIME + WAIT_TIME) {
 
             this.timer = APPEAR_TIME + WAIT_TIME;
         }
