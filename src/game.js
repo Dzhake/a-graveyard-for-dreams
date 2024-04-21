@@ -119,6 +119,7 @@ export class Game extends Scene {
 
 
     reset(ev, doNotGoToCheckpoint) {
+        this.updatePlayerSkin = true;
 
         this.stage.reset();
         this.objects.reset(this.stage, 
