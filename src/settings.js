@@ -11,6 +11,12 @@ export class Settings {
         PlayerSkin = value
     }
 
+    static setDifficulty(value) {
+        Difficulty = value
+    }
+
 }
 
 export let PlayerSkin = "figure"
+
+export let Difficulty = 1

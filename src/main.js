@@ -5,7 +5,7 @@
  */
 
 import { Application } from "./core/application.js";
-import { AudioIntro } from "./audiointro.js";
+import { AudioIntro } from "./setting_audiointro.js";
 
 
 window.onload = () => (new Application(160, 144, 0))

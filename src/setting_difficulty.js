@@ -6,51 +6,51 @@
 
 import { Menu, MenuButton } from "./menu.js";
 import { Scene } from "./core/scene.js";
-import {  Settings } from "./settings.js";
-import { DifficultySelect } from "./setting_difficulty.js";
+import { Intro } from "./intro.js";
+import { Settings } from "./settings.js";
 
 
-export class SkinSelect extends Scene {
+export class DifficultySelect extends Scene {
 
 
     constructor(ev, param) {
 
         super(ev, param);
 
-        let startScene = DifficultySelect;
+        let startScene = Intro;
         let loc = ev.assets.localization["en"];
 
         this.menu = new Menu(12, true,
             [
                 new MenuButton(
-                    loc["defaultskin"], (ev) => {
+                    loc["difficulty_normal"], (ev) => {
 
-                        Settings.setSkin("figure")
+                        Settings.setDifficulty(1)
 
                         ev.changeScene(startScene);
                         
                     }, false),
                 new MenuButton(
-                    loc["npcskin"], (ev) => {
+                    loc["difficulty_hard"], (ev) => {
 
-                        Settings.setSkin("figure_npc")
+                        Settings.setDifficulty(2)
                         ev.changeScene(startScene);
                     }, true),
                 new MenuButton(
-                    loc["sleepyskin"], (ev) => {
+                    loc["difficulty_very_hard"], (ev) => {
 
-                        Settings.setSkin("figure_sleepy")
+                        Settings.setDifficulty(3)
                         ev.changeScene(startScene);
                     }, true),
                 new MenuButton(
-                    loc["foolskin"], (ev) => {
+                    loc["difficulty_impossible"], (ev) => {
 
-                        Settings.setSkin("figure_fool")
+                        Settings.setDifficulty(4)
                         ev.changeScene(startScene);
                     }, true)
             ]);
 
-        this.questionText = loc["skinselect"];
+        this.questionText = loc["difficultyselect"];
     }
 
 

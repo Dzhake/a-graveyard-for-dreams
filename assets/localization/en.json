@@ -1,11 +1,17 @@
 {
     "audiointro": "Enable audio?\nPress enter\nto confirm.",
     "skinselect": "Select skin",
+    "difficultyselect": "Select difficulty",
 
     "defaultskin": "Default",
     "npcskin":"Npc",
     "sleepyskin":"Sleepy",
     "foolskin":"Fool",
+
+    "difficulty_normal": "Normal",
+    "difficulty_hard":"Hard",
+    "difficulty_very_hard":"Very Hard",
+    "difficulty_impossible":"Impossible",
     
     "yes": "Yes",
     "no": "No",

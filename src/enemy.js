@@ -10,6 +10,7 @@ import { CollisionObject } from "./collisionobject.js";
 import { overlay } from "./core/util.js";
 import { Sprite } from "./core/sprite.js";
 import { Flip } from "./core/canvas.js";
+import { Difficulty } from "./settings.js";
 
 
 export class Enemy extends CollisionObject {
@@ -24,9 +25,9 @@ export class Enemy extends CollisionObject {
 		this.spr = new Sprite(16, 16);
 		this.spr.setFrame(0, row+1);
 		
-		this.maxHealth = health;
-		this.health = health;
-		this.damage = dmg;
+		this.maxHealth = health * Difficulty;
+		this.health = health * Difficulty;
+		this.damage = dmg * Difficulty;
 		
 		this.hurtTimer = 0;
         this.hurtIndex = -1;
@@ -141,7 +142,7 @@ export class Enemy extends CollisionObject {
 
     hurt(knockback, dmg, objm, source, ev) {
 
-        const HURT_TIME = 30;
+        const HURT_TIME = 30 * Difficulty;
 
 		this.health -= dmg;
 		if (!this.isStatic)
