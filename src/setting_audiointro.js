@@ -6,7 +6,7 @@
 
 import { Menu, MenuButton } from "./menu.js";
 import { Scene } from "./core/scene.js";
-import { SkinSelect } from "./settings_skinselect.js";
+import { SkinSelect } from "./setting_skinselect.js";
 
 
 export class AudioIntro extends Scene {
