@@ -17,10 +17,10 @@ if [[ "x$filename" == "xnone" ]]; then
 else
     echo "Starting compilation..."
     #compile
-    java -jar tools/closure.jar --js src/core/*.js src/*.js --js_output_file tools/out.js --compilation_level ADVANCED_OPTIMIZATIONS --language_out ECMASCRIPT_2018
+    java -jar tools/closure.jar --js src/core/*.js src/*.js --js_output_file tools/out.js --compilation_level ADVANCED_OPTIMIZATIONS
 
     #create .html
-    rm -f ./$filename.html
+    rm -f ./$filename.html # I don't know if this ilne is neccesarry, but uh
 
     cat tools/html_top.txt > ./$filename.html
     cat tools/out.js >> ./$filename.html
