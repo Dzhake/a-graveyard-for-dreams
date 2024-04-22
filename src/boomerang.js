@@ -9,6 +9,7 @@ import { Vector2 } from "./core/vector.js";
 import { Sprite } from "./core/sprite.js";
 import { Flip } from "./core/canvas.js";
 import { clamp, nextObject } from "./core/util.js";
+import { PlayerSkin } from "./settings.js";
 
 
 class Flame {
@@ -44,7 +45,7 @@ class Flame {
         if (!this.exist)
             return;
 
-        this.skin = ev.settings.skin;
+        this.skin = PlayerSkin;
 
         if ((this.timer -= this.speed * ev.step) <= 0) {
             this.exist = false;
@@ -165,7 +166,7 @@ export class Boomerang extends CollisionObject {
 
 
     updateLogic(ev) {
-        this.skin = ev.settings.skin;
+        this.skin = PlayerSkin;
 
         const EPS = 12.0;
         const ANIM_SPEED = 4;

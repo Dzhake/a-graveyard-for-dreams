@@ -7,6 +7,7 @@
 import { Menu, MenuButton } from "./menu.js";
 import { Scene } from "./core/scene.js";
 import { Intro } from "./intro.js";
+import { PlayerSkin, Settings } from "./settings.js";
 
 
 export class SkinSelect extends Scene {
@@ -24,7 +25,7 @@ export class SkinSelect extends Scene {
                 new MenuButton(
                     loc["defaultskin"], (ev) => {
 
-                        ev.settings.skin = "figure";
+                        Settings.setSkin("figure")
 
                         ev.changeScene(startScene);
                         
@@ -32,19 +33,19 @@ export class SkinSelect extends Scene {
                 new MenuButton(
                     loc["npcskin"], (ev) => {
 
-                        ev.settings.skin = "figure_npc";
+                        Settings.setSkin("figure_npc")
                         ev.changeScene(startScene);
                     }, true),
                 new MenuButton(
                     loc["sleepyskin"], (ev) => {
 
-                        ev.settings.skin = "figure_sleepy";
+                        Settings.setSkin("figure_sleepy")
                         ev.changeScene(startScene);
                     }, true),
                 new MenuButton(
                     loc["foolskin"], (ev) => {
 
-                        ev.settings.skin = "figure_fool";
+                        Settings.setSkin("figure_fool")
                         ev.changeScene(startScene);
                     }, true)
             ]);

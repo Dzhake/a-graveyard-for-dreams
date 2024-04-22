@@ -18,6 +18,7 @@ import { TitleScreen } from "./titlescreen.js";
 import { loadData } from "./savedata.js";
 import { Shop } from "./shop.js";
 import { GameMap } from "./gamemap.js";
+import { PlayerSkin } from "./settings.js";
 
 
 export const MAIN_THEME_VOLUME = 0.25;
@@ -235,7 +236,7 @@ export class Game extends Scene {
         }
 
         if (this.updatePlayerSkin) {
-            this.objects.player.skin = ev.settings.skin;
+            this.objects.player.skin = PlayerSkin;
             this.updatePlayerSkin = false;
         }
 

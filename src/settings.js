@@ -7,8 +7,10 @@
 
 export class Settings {
 
-    constructor() {
-        this.skin = "figure"
+    static setSkin(value) {
+        PlayerSkin = value
     }
 
 }
+
+export let PlayerSkin = "figure"

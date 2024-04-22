@@ -12,6 +12,7 @@ import { State } from "./core/input.js";
 import { Boomerang } from "./boomerang.js";
 import { overlay } from "./core/util.js";
 import { ItemType } from "./progress.js";
+import { PlayerSkin } from "./settings.js";
 
 const ATTACK_TIME = 16;
 // TODO: Make sure the number below is sufficient
@@ -788,7 +789,7 @@ export class Player extends CollisionObject {
 
 
     updateLogic(ev) {
-        this.skin = ev.settings.skin;
+        this.skin = PlayerSkin;
 
         const EPS = 0.01;
 
