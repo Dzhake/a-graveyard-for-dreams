@@ -21,6 +21,3 @@ dist: compile pack
 test:
 	./test.sh $(RUN_ARGS)
 
-linecount:
-	(cd src; find . -name '*.js' | xargs wc -l)
-
