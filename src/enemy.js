@@ -25,9 +25,9 @@ export class Enemy extends CollisionObject {
 		this.spr = new Sprite(16, 16);
 		this.spr.setFrame(0, row+1);
 		
-		this.maxHealth = health * Difficulty;
-		this.health = health * Difficulty;
-		this.damage = dmg * Difficulty;
+		this.maxHealth = health * (0.5 + (Difficulty /2));
+		this.health = health * (0.5 + (Difficulty /2));
+		this.damage = dmg * (0.5 + (Difficulty /2));
 		
 		this.hurtTimer = 0;
         this.hurtIndex = -1;
@@ -142,7 +142,7 @@ export class Enemy extends CollisionObject {
 
     hurt(knockback, dmg, objm, source, ev) {
 
-        const HURT_TIME = 30 * Difficulty;
+        const HURT_TIME = 30;
 
 		this.health -= dmg;
 		if (!this.isStatic)

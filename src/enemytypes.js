@@ -10,6 +10,8 @@ import { clamp } from "./core/util.js";
 import { Vector2 } from "./core/vector.js";
 import { Enemy } from "./enemy.js";
 import { FinalBoss } from "./finalboss.js";
+import { Difficulty } from "./settings.js";
+import { State } from "./core/input.js";
 
 
 export function getEnemyType(index) {
@@ -58,7 +60,7 @@ export class Turtle extends Enemy {
 		this.dir = 1 - 2 * (((x / 16) | 0) % 2);
 		this.flip = this.dir > 0 ? Flip.Horizontal : Flip.None;
 		
-		this.target.x = TURTLE_BASE_SPEED;
+		this.target.x = TURTLE_BASE_SPEED * Difficulty;
 		this.speed.x = this.target.x;
 	}
 	
@@ -67,7 +69,7 @@ export class Turtle extends Enemy {
 		
 		const BASE_GRAVITY = 2.0;
 
-		this.target.x = TURTLE_BASE_SPEED * this.dir;
+		this.target.x = TURTLE_BASE_SPEED * this.dir * Difficulty;
 		this.target.y = BASE_GRAVITY;
 
         // If going to move off the ledge, change direction
@@ -144,6 +146,13 @@ export class Fungus extends Enemy {
 		this.mass = 0.5;
 		
 		this.jumpTimer = 0;
+
+		this.isShadow = (Math.random() <= ((Difficulty - 1) / 5));
+		if (this.isShadow) this.invincible = true;
+
+		this.wasJumping = false;
+
+		this.plDist = 0;
 	}
 
 
@@ -163,13 +172,22 @@ export class Fungus extends Enemy {
 		
 		if (this.canJump) {
 
-			if ((this.jumpTimer -= ev.step) <= 0) {
+			if ((this.jumpTimer -= ev.step) <= 0 && (!this.isShadow || ev.input.actions["fire1"].state == State.Pressed)) {
 
-				this.jumpTimer += FUNGUS_JUMP_TIME_BASE;
+				this.jumpTimer += FUNGUS_JUMP_TIME_BASE / Difficulty / (this.isShadow ? 2 : 1);
                 this.speed.y = JUMP_HEIGHT;
                 
                 // Sound effect
                 ev.audio.playSample(ev.assets.samples["jump2"], 0.50);
+
+				this.wasJumping = true;
+			}
+
+			if (this.wasJumping && Difficulty >= 3) {
+				this.wasJumping = false;
+				this.bulletCb(this.pos.x + this.dir*2, this.pos.y-4, 
+					this.plDist / 80, 
+					-2.0, 1, true, 1);
 			}
 		}
 	}
@@ -183,8 +201,10 @@ export class Fungus extends Enemy {
 
 		let frame = 0;
 
-		if (Math.abs(this.speed.y) > EPS)
+		if (Math.abs(this.speed.y) > EPS) 
 			frame = this.speed.y < 0 ? 1 : 2;
+
+		if (this.isShadow) frame += 3;
 
 		this.spr.setFrame(frame, this.spr.row);
 	}
@@ -193,6 +213,7 @@ export class Fungus extends Enemy {
 	playerEvent(pl, ev) {
 
 		this.dir = pl.pos.x > this.pos.x ? 1 : -1;
+		this.plDist = pl.pos.x - this.pos.x;
 	}
 
 }
@@ -230,7 +251,7 @@ export class Caterpillar extends Enemy {
 	updateAI(ev) {
 		
 		const BASE_GRAVITY = 2.0;
-        const BASE_SPEED = 0.60;
+        const BASE_SPEED = 0.60 * Difficulty;
 
 		this.target.x = 0.0;
 		this.target.y = BASE_GRAVITY;
@@ -261,7 +282,7 @@ export class Caterpillar extends Enemy {
 	animate(ev) {
 		
         const BASE_ANIM_SPEED = 6.0;
-        const WAIT_SPEED = 30.0;
+        const WAIT_SPEED = 30.0 / Difficulty;
 		
 		this.flip = this.dir > 0 ? Flip.Horizontal : Flip.None;
 		
@@ -344,7 +365,7 @@ export class Bunny extends Enemy {
 		
 		const BASE_GRAVITY = 4.0;
         const JUMP_HEIGHT = -2.5;
-		const FORWARD_SPEED = 0.5;
+		const FORWARD_SPEED = 0.5 * (Difficulty /2 + 0.5);
 		
 		this.target.y = BASE_GRAVITY;
 		
@@ -354,7 +375,7 @@ export class Bunny extends Enemy {
 
 			if ((this.jumpTimer -= ev.step) <= 0) {
 
-				this.jumpTimer += BUNNY_JUMP_TIME_BASE;
+				this.jumpTimer += BUNNY_JUMP_TIME_BASE / Difficulty;
                 this.speed.y = JUMP_HEIGHT;
                 
                 this.target.x = this.targetDir * FORWARD_SPEED;
@@ -954,6 +975,9 @@ export class SimpleShooter extends Enemy {
 		this.shootTimer = SIMPLE_SHOOTER_SHOOT_TIME - 
 			(((x / 16) | 0) % 2) * (SIMPLE_SHOOTER_SHOOT_TIME/2);
 
+		this.subShootTimer = this.shootTimer / Difficulty /2;
+		this.subShootAmount = 5;
+
 		this.returnAnim = false;
 	}
 
@@ -983,7 +1007,20 @@ export class SimpleShooter extends Enemy {
 				this.shootTimer = SIMPLE_SHOOTER_SHOOT_TIME;
 
 				this.shootEvent(ev);
+				this.subShootAmount = Difficulty - 1;
 			}
+		}
+
+		if (this.subShootAmount > 0 && (this.subShootTimer -= ev.step) <= 0 ) {
+			this.subShootAmount--;
+			this.subShootTimer = 5;
+
+			this.spr.setFrame(1, this.spr.row);
+			this.shooting = true;
+
+			this.shootTimer = SIMPLE_SHOOTER_SHOOT_TIME;
+
+			this.shootEvent(ev);
 		}
 	}
 	
@@ -1040,8 +1077,11 @@ export class Snowman extends SimpleShooter {
 
 		const BULLET_SPEED = 2.0;
 
-		this.bulletCb(this.pos.x + this.dir*4, this.pos.y, 
-			this.dir*BULLET_SPEED, 0, 0, false, 1);
+		for (let i = 0; i < Difficulty; i++) {
+			this.bulletCb(this.pos.x + this.dir*4, this.pos.y, 
+				this.dir*BULLET_SPEED, 0, 0, false, 1);
+		}
+		
 
 		// Sound effect
 		ev.audio.playSample(ev.assets.samples["snowball"], 0.50);

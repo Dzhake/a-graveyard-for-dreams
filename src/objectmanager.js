@@ -10,7 +10,7 @@ import { Chest } from "./chest.js";
 import { Collectible } from "./collectible.js";
 import { clamp, nextObject } from "./core/util.js";
 import { Door } from "./door.js";
-import { Flame, getEnemyType } from "./enemytypes.js";
+import { Flame, Fungus, getEnemyType } from "./enemytypes.js";
 import { FlyingText } from "./flyingtext.js";
 import { NightOrb } from "./nightorb.js";
 import { NightStar } from "./nightstar.js";
@@ -18,6 +18,7 @@ import { NPC } from "./npc.js";
 import { Player } from "./player.js";
 import { Portal } from "./portal.js";
 import { Savepoint } from "./savepoint.js";
+import { Difficulty } from "./settings.js";
 import { Shopkeeper } from "./shopkeeper.js";
 import { SpecialNPC } from "./specialnpc.js";
 
